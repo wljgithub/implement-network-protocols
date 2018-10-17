@@ -88,18 +88,20 @@ def one_ping(dst_addr,icmp_sq,timeout = 2):
 
 def ping(dst_addr,timeout = 2, count = 4):
     for i in range(0,count):
-        time, addr = one_ping(dst_addr,i+1,timeout)
-        if time > 0:
-            print("来自 {0} 的回复: 字节=32 时间={1}ms".format(addr,int(time*1000)))
+        t, addr = one_ping(dst_addr,i+1,timeout)
+        print("time is :",tim)
+        if t > 0:
+            print("来自 {0} 的回复: 字节=32 时间={1}ms".format(addr,int(t*1000)))
         else:
             print("来自 {0} 的回复:超时".format(addr))
+        time.sleep(1)
 
 
 
 if __name__=="__main__":
     if len(sys.argv) < 2:
         sys.exit('Usage: ping.py <hostname>')
-    # print(sys.argv[0:])
+    print(sys.argv[0:])
     ping(sys.argv[1])
 
 
